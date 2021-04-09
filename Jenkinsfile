@@ -17,7 +17,9 @@ podTemplate(
                 sh '''
                 uptime;
                 date;
-                python --version
+                python --version;
+                pip install mkdocs
+                mkdocs --version
                 '''
             }
         }
