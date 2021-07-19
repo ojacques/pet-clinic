@@ -3,13 +3,6 @@ pipeline {
     agent any
     
     stages {
-
-        stage('Build') {
-            steps {
-                echo 'Build'
-                sh "mvn --batch-mode package" 
-            }
-        }
       stage('Dependency check') {
           steps {
               sh "mvn --batch-mode dependency-check:check"
@@ -27,6 +20,12 @@ pipeline {
               }
           }
       }
+        stage('Build') {
+            steps {
+                echo 'Build'
+                sh "mvn --batch-mode package" 
+            }
+        }
         stage('Archive Unit Tests Results') {
             steps {
                 echo 'Archive Unit Test Results'
